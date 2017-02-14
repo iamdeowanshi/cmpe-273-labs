@@ -6,7 +6,6 @@ from collections import defaultdict
 import psutil
 
 connections = psutil.net_connections(kind="tcp")
-connection_dict = defaultdict(int)
 
 valid_connections = []
 
