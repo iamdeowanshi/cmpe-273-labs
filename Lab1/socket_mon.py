@@ -8,7 +8,7 @@ connections = psutil.net_connections(kind="tcp")
 valid_connections = []
 
 for connection in connections:
-    if str(connection.laddr) != "::" and str(connection.raddr) != "()":
+    if connection.pid != None and str(connection.laddr) != "::" and str(connection.raddr) != "()":
         valid_connections.append(connection)
     else:
         pass
