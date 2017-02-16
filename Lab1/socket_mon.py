@@ -14,13 +14,13 @@ for connection in connections:
         pass
 
 pid_count = Counter(item[-1] for item in valid_connections)
-valid_connections = sorted(valid_connections, key=lambda x: pid_count[x[-1]], reverse=True)
+sorted_connection = sorted(valid_connections, key=lambda x: pid_count[x[-1]], reverse=True)
 
 print """
 "pid","laddr","raddr","status"
 """,
 
-for connection in valid_connections:
+for connection in sorted_connection:
     laddr = "{}@{}".format(connection.laddr[0], connection.laddr[1])
     raddr = "{}@{}".format(connection.raddr[0], connection.raddr[1])
     print "\"{}\",\"{}\",\"{}\",\"{}\"".format(connection.pid, laddr, raddr, connection.status)
